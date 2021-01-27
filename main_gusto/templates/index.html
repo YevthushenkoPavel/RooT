@@ -3,8 +3,25 @@
 {% block content %}
 
     <section>
-        <h1>Hello World!</h1>
-        <h2>Is it work?</h2>
+        <h1>Menu</h1>
+        <div class="container">
+            <div class="row">
+                {% for item in categories %}
+                    <div class="col-xs-12 col-sm-6">
+                        <h2>{{ item.title }}</h2>
+                        {% for dish in item.dishes  %}
+                            <div>
+                                <div><h3>{{ dish.title }}</h3></div>
+                                <div><p>{{ dish.description }}</p></div>
+                                <div><p>{{ dish.price }} &#8372</p></div>
+                                <div><img src="{{ dish.photo.url }}"></div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
     </section>
 
 {% endblock %}
